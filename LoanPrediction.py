@@ -44,7 +44,7 @@ def processData(df):
     return df
 
 def create_model():
-    df_train = pd.read_csv("E:\\Edureka\\Code\\SelfPython\\Kaggle\\EnsembleLearning\\LoanPrediction\\data\\train.csv")
+    df_train = pd.read_csv("data\\train.csv")
     df_train = processData(df_train)
 
     imputer = KNNImputer(missing_values=np.nan,n_neighbors=10)
@@ -71,21 +71,21 @@ def create_model():
 
     
 
-    pickle.dump(model,open('E:\\Edureka\\Code\\SelfPython\\Kaggle\\EnsembleLearning\\LoanPrediction\\model.sav','wb'))
+    pickle.dump(model,open('model.sav','wb'))
     
     return model
 
 create_model()
 
 def load_model():
-    return pickle.load(open('E:\\Edureka\\Code\\SelfPython\\Kaggle\\EnsembleLearning\\LoanPrediction\\model.sav', 'rb'))
+    return pickle.load(open('model.sav', 'rb'))
 
 def predict(X):
     model = load_model()
     print("test:",model.predict(X))
     return model.predict_proba(X)
 
-df_test = pd.read_csv("E:\\Edureka\\Code\\SelfPython\\Kaggle\\EnsembleLearning\\LoanPrediction\\data\\test.csv")
+df_test = pd.read_csv("data\\test.csv")
 df_test = df_test.dropna()
 #df_test = processData(df_test)
 
