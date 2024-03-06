@@ -75,7 +75,7 @@ def create_model():
     
     return model
 
-create_model()
+#create_model()
 
 def load_model():
     return pickle.load(open('model.sav', 'rb'))
