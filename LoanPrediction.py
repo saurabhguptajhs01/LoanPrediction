@@ -44,7 +44,7 @@ def processData(df):
     return df
 
 def create_model():
-    df_train = pd.read_csv("data\train.csv")
+    df_train = pd.read_csv("data/train.csv")
     df_train = processData(df_train)
 
     imputer = KNNImputer(missing_values=np.nan,n_neighbors=10)
@@ -85,7 +85,7 @@ def predict(X):
     print("test:",model.predict(X))
     return model.predict_proba(X)
 
-df_test = pd.read_csv("data\test.csv")
+df_test = pd.read_csv("data/test.csv")
 df_test = df_test.dropna()
 #df_test = processData(df_test)
 
